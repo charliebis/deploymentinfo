@@ -16,6 +16,5 @@ return [
     | root. If the file exists in the project root, only the file name is needed.
     |
     */
-
     'json_file_path' => env('JSON_FILE_PATH', 'deployment-info.json'),
 ];
