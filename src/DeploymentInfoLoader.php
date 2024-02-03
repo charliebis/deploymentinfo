@@ -18,7 +18,7 @@ class DeploymentInfoLoader
     /**
      * @var string
      */
-    protected string $version = '';
+    protected string $versionKey = '';
     /**
      * @var string
      */
@@ -43,8 +43,10 @@ class DeploymentInfoLoader
 
     /**
      * @param string $jsonPath
+     * @param string $versionKey
      */
-    public function __construct(string $jsonPath) {
+    public function __construct(string $jsonPath, string $versionKey) {
+        $this->setVersionKey($versionKey);
         $this->reset($jsonPath);
     }
 
@@ -119,6 +121,19 @@ class DeploymentInfoLoader
 
 
     /**
+     * Sets the version key. This is used to set the $this->version when loading in the values from
+     * the JSON file.
+     *
+     * @param string $versionKey The version key to be set.
+     *
+     * @return void
+     */
+    public function setVersionKey(string $versionKey): void {
+        $this->versionKey = $versionKey;
+    }
+
+
+    /**
      * Retrieves the deployment information.
      *
      * This method returns an array containing the deployment information.
@@ -139,7 +154,7 @@ class DeploymentInfoLoader
      *
      * @param string $key The key representing the path to the desired value in the deployment info.
      *
-     * @return mixed|null The value associated with the specified key, or null if the key does not exist.
+     * @return string|array|null The value associated with the specified key, or null if the key does not exist.
      */
     public function getDeploymentInfoValueByKey(string $key): mixed {
         $keys           = explode('.', $key);
@@ -192,14 +207,12 @@ class DeploymentInfoLoader
 
 
     /**
-     * Retrieves the version of the software.
-     *
-     * This method returns the version of the software as a string value.
+     * Retrieves the version of the app
      *
      * @return string The version of the software.
      */
     public function getVersion(): string {
-        return $this->version;
+        return $this->getDeploymentInfoValueByKey($this->versionKey);
     }
 
 

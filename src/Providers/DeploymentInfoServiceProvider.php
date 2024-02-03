@@ -21,7 +21,7 @@ class DeploymentInfoServiceProvider extends ServiceProvider
     public function register(): void {
         $this->mergeConfigFrom(__DIR__.'/../config/deployment-info.php', 'deployment-info');
         $this->app->singleton('DeploymentInfoFacade', function ($app) {
-            return new DeploymentInfoLoader(base_path(config('deployment-info.json_file_path')));
+            return new DeploymentInfoLoader(config('deployment-info.json_file_path'));
         });
     }
 

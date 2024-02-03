@@ -1,41 +1,26 @@
 # DeploymentInfo
 
-## Parses JSON encoded deployment vars from text file in the project
+## Parses (and makes available within your app) an array (possibly multidimensional) of values from a JSON encoded file that is placed in the project root during project deployment
 
-This package is designed to parse a JSON encoded deployment variables file within your project. The file should be created in the project by your CI/CD script and include vars that are available during deployment such as the git commit hash, commit author, meta information about the deployment itself, etc.
+This package is designed to parse a JSON encoded deployment variables file in your project root. The file should be created in the project by your CI/CD script and include vars that
+are available during deployment such as the version tag, git commit hash, commit author, meta information about the deployment itself, etc.
 
 The JSON encoded array can be multidimensional, offering flexibility in how you choose to structure your deployment information.
 
 ## Installation
 
-Add the following line to your composer.json file:
-"Bisutil\\DeploymentInfo\\": "packages/bisutil/deploymentinfo/src/"
-
-to the autoload section. For example:
+1) Add the package repository to the repositories section of your composer.json, as in the below example:
 
 ```JSON
-"autoload": {
-    "psr-4": {
-        "App\\": "app/",
-        "Database\\Factories\\": "database/factories/",
-        "Database\\Seeders\\": "database/seeders/",
-        "Bisutil\\DeploymentInfo\\": "packages/bisutil/deploymentinfo/src/"
-    }
-},
+"repositories": [
+  {
+    "type": "vcs",
+    "url": "https://github.com/charliebis/deploymentinfo.git"
+  }
+]
 ```
 
-## Usage
-
-Ensure the JSON file exists in the project root and is called deployment-info.json. Alternatively, you can publish the
-config file using
-
-```shell
-php artisan vendor:publish
-````
-
-and change the json_file_path in the deployment-info.php config file.
-
-Add the service provider in the config/app.php file, e.g.
+2) Add the service provider to the providers array in your app's config/app.php file, e.g.
 
 ```PHP
 /*
@@ -44,7 +29,7 @@ Add the service provider in the config/app.php file, e.g.
 Bisutil\DeploymentInfo\Providers\DeploymentInfoServiceProvider::class,
 ```
 
-and the facade alias, e.g.
+3) Add the facade alias, also in your config/app.php file, e.g.
 
 ```PHP
 'aliases' => Facade::defaultAliases()->merge([
@@ -52,6 +37,24 @@ and the facade alias, e.g.
     'DeploymentInfo' => \Bisutil\DeploymentInfo\Facades\DeploymentInfoFacade::class,
 ])->toArray(),
 ```
+
+4) Require the package in your Laravel application with the command:
+
+````shell
+composer require bisutil/deploymentinfo:^1.0.5
+````
+
+5) Ensure the JSON file exists in your project root and is called deployment-info.json. Alternatively, you can publish the
+config file using...
+
+```shell
+php artisan vendor:publish --provider="Bisutil\DeploymentInfo\Providers\DeploymentInfoServiceProvider"
+````
+
+...and change the json_file_path in the deployment-info.php config file which now exists in your app's config directory.
+
+
+## Usage
 
 The DeploymentInfo facade will now be available in your app. Example usage:
 
@@ -102,6 +105,6 @@ A real-world use for this package would be to display the hash (or short hash) o
 
 ```php
 @if(DeploymentInfo::getStatus() === 'success')
-<p class="mt-6">{{ DeploymentInfo::getDeploymentInfoValueByKey('CI_COMMIT_SHA') }}</p>
+    <p class="mt-6">{{ DeploymentInfo::getDeploymentInfoValueByKey('CI_COMMIT_SHORT_SHA') }}</p>
 @endif
 ```
