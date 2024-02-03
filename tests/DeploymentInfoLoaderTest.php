@@ -145,17 +145,17 @@ class DeploymentInfoLoaderTest extends TestCase
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $total  = $this->loader->getTotal();
         $this->assertIsInt($total);
-        $this->assertEquals(5, $total);
+        $this->assertEquals(8, $total);
         //  Test that a 2d array with 10 leaf elements returns a total of 10
         $this->loader->reset($this->mockJsonFiles['valid_two_dimensional']);
         $total = $this->loader->getTotal();
         $this->assertIsInt($total);
-        $this->assertEquals(10, $total);
+        $this->assertEquals(13, $total);
         //  Test that a 3d array with 15 leaf elements returns a total of 15
         $this->loader->reset($this->mockJsonFiles['valid_three_dimensional']);
         $total = $this->loader->getTotal();
         $this->assertIsInt($total);
-        $this->assertEquals(15, $total);
+        $this->assertEquals(18, $total);
         //  Test that an invalid JSON file causes getTotal() to return 0
         $this->loader->reset($this->mockJsonFiles['empty_string']);
         $total = $this->loader->getTotal();
@@ -178,19 +178,19 @@ class DeploymentInfoLoaderTest extends TestCase
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $deploymentInfo = $this->loader->getDeploymentInfo();
         $this->assertIsArray($deploymentInfo);
-        $this->assertCount(5, $deploymentInfo);
+        $this->assertCount(8, $deploymentInfo);
         //  The valid_two_dimensional file is a 2d array of 6 elements (one of which is an array of x elements)
         $this->loader->reset($this->mockJsonFiles['valid_two_dimensional']);
         $deploymentInfo = $this->loader->getDeploymentInfo();
         $this->assertIsArray($deploymentInfo);
         //  So there should be 6 elements
-        $this->assertCount(6, $deploymentInfo);
+        $this->assertCount(9, $deploymentInfo);
         //  The valid_two_dimensional file is a 3d array of 6 elements (one of which is an array of x elements, one of those being an array of x elements)
         $this->loader->reset($this->mockJsonFiles['valid_three_dimensional']);
         $deploymentInfo = $this->loader->getDeploymentInfo();
         $this->assertIsArray($deploymentInfo);
         //  So there should still be 6 elements
-        $this->assertCount(6, $deploymentInfo);
+        $this->assertCount(9, $deploymentInfo);
     }
 
 
