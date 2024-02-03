@@ -30,7 +30,10 @@
     "laravel": {
       "providers": [
         "BISUtil\\DeploymentInfo\\Providers\\DeploymentInfoServiceProvider"
-      ]
+      ],
+      "aliases": {
+        "DeploymentInfo": "BISUtil\\DeploymentInfo\\Facades\\DeploymentInfoFacade"
+      }
     }
   },
   "minimum-stability": "stable",
