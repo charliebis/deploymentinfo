@@ -9,15 +9,16 @@ use Illuminate\Support\Facades\Facade;
  *
  * @package Bisutil\DeploymentInfo
  * @see \Bisutil\DeploymentInfo\DeploymentInfoServiceProvider
- * @method __construct(string $jsonPath)
- * @method void loadDeploymentInfo()
- * @method int countConfigs(array $deploymentInfo)
- * @method string getStatus()
- * @method string getError()
- * @method string getVersion()
- * @method int getTotal()
+ * @method __construct(string $jsonPath, string $versionKey)
+ * @method void setVersionKey(string $versionKey)
  * @method array getDeploymentInfo()
  * @method mixed getDeploymentInfoValueByKey(string $key)
+ * @method string getError()
+ * @method string getStatus()
+ * @method int getTotal()
+ * @method string getVersion()
+ * @method bool isJsonPathValid(string $jsonPath)
+ * @method bool reset(string $jsonPath)
  */
 class DeploymentInfoFacade extends Facade
 {

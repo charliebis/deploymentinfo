@@ -43,7 +43,7 @@ class DeploymentInfoLoaderTest extends TestCase
             'not_a_json_file_extension' => $fixturesPath . 'not_a_json_file_extension.txt',
             'empty_string'              => $fixturesPath . 'empty_string.json'
         ];
-        $this->loader = new DeploymentInfoLoader($this->mockJsonFiles['valid_one_dimensional']);
+        $this->loader = new DeploymentInfoLoader($this->mockJsonFiles['valid_one_dimensional'], 'CI_COMMIT_TAG');
     }
 
 
@@ -191,6 +191,20 @@ class DeploymentInfoLoaderTest extends TestCase
         $this->assertIsArray($deploymentInfo);
         //  So there should still be 6 elements
         $this->assertCount(6, $deploymentInfo);
+    }
+
+
+    /**
+     * Test the getVersion() functionality. It should return the key from the deploymentInfo array
+     * at key CI_COMMIT_TAG, which in this test, should be "version"
+     *
+     * @return void
+     */
+    public function testVersionGet(): void {
+        //  The valid_one_dimensional file is a 1d array of 5 elements
+        $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
+        $version = $this->loader->getVersion();
+        $this->assertEquals('version', $version);
     }
 
 
