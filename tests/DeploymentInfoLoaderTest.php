@@ -1,8 +1,8 @@
 <?php
 
-namespace Bisutil\DeploymentInfo\Tests;
+namespace BISUtil\DeploymentInfo\Tests;
 
-use Bisutil\DeploymentInfo\DeploymentInfoLoader;
+use BISUtil\DeploymentInfo\DeploymentInfoLoader;
 use PHPUnit\Framework\TestCase;
 
 /**

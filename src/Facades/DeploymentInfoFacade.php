@@ -1,14 +1,14 @@
 <?php
 
-namespace Bisutil\DeploymentInfo\Facades;
+namespace BISUtil\DeploymentInfo\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class DeploymentInfoFacade
  *
- * @package Bisutil\DeploymentInfo
- * @see \Bisutil\DeploymentInfo\DeploymentInfoServiceProvider
+ * @package BISUtil\DeploymentInfo
+ * @see \BISUtil\DeploymentInfo\DeploymentInfoServiceProvider
  * @method __construct(string $jsonPath, string $versionKey)
  * @method void setVersionKey(string $versionKey)
  * @method array getDeploymentInfo()

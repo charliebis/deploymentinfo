@@ -1,13 +1,13 @@
 <?php
 
-namespace Bisutil\DeploymentInfo\Providers;
+namespace BISUtil\DeploymentInfo\Providers;
 
-use Bisutil\DeploymentInfo\DeploymentInfoLoader;
+use BISUtil\DeploymentInfo\DeploymentInfoLoader;
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Class DeploymentInfoServiceProvider
- * @package Bisutil\DeploymentInfo\Providers
+ * @package BISUtil\DeploymentInfo\Providers
  *
  * This class provides the DeploymentInfo service
  */

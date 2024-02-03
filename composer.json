@@ -18,18 +18,18 @@
   },
   "autoload": {
     "psr-4": {
-      "Bisutil\\DeploymentInfo\\": "src/"
+      "BISUtil\\DeploymentInfo\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Bisutil\\DeploymentInfo\\Tests\\": "tests/"
+      "BISUtil\\DeploymentInfo\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Bisutil\\DeploymentInfo\\Providers\\DeploymentInfoServiceProvider"
+        "BISUtil\\DeploymentInfo\\Providers\\DeploymentInfoServiceProvider"
       ]
     }
   },

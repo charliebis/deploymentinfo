@@ -26,7 +26,7 @@ The JSON encoded array can be multidimensional, offering flexibility in how you 
 /*
 * Other Service Providers...
 */
-Bisutil\DeploymentInfo\Providers\DeploymentInfoServiceProvider::class,
+BISUtil\DeploymentInfo\Providers\DeploymentInfoServiceProvider::class,
 ```
 
 3) Add the facade alias, also in your config/app.php file, e.g.
@@ -34,7 +34,7 @@ Bisutil\DeploymentInfo\Providers\DeploymentInfoServiceProvider::class,
 ```PHP
 'aliases' => Facade::defaultAliases()->merge([
     // 'ExampleClass' => App\Example\ExampleClass::class,
-    'DeploymentInfo' => \Bisutil\DeploymentInfo\Facades\DeploymentInfoFacade::class,
+    'DeploymentInfo' => \BISUtil\DeploymentInfo\Facades\DeploymentInfoFacade::class,
 ])->toArray(),
 ```
 
@@ -48,7 +48,7 @@ composer require bisutil/deploymentinfo:^1.0.5
 config file using...
 
 ```shell
-php artisan vendor:publish --provider="Bisutil\DeploymentInfo\Providers\DeploymentInfoServiceProvider"
+php artisan vendor:publish --provider="BISUtil\DeploymentInfo\Providers\DeploymentInfoServiceProvider"
 ````
 
 ...and change the json_file_path in the deployment-info.php config file which now exists in your app's config directory.

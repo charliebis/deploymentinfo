@@ -1,11 +1,11 @@
 <?php
 
-namespace Bisutil\DeploymentInfo;
+namespace BISUtil\DeploymentInfo;
 
 /**
  * Class DeploymentInfoLoader
  *
- * @package Bisutil\DeploymentInfo
+ * @package BISUtil\DeploymentInfo
  *
  * Represents information about a deployment.
  */
