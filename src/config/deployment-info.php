@@ -25,5 +25,5 @@ return [
     | This is likely to be a Git version tag.
     |
     */
-    'version_key' => env('CI_COMMIT_TAG', 'deployment-info.json'),
+    'version_key' => env('DEPLOYMENT_INFO_VERSION_KEY', 'CI_COMMIT_TAG'),
 ];
