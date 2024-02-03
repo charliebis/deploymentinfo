@@ -3,7 +3,6 @@
 namespace Bisutil\DeploymentInfo\Providers;
 
 use Bisutil\DeploymentInfo\DeploymentInfoLoader;
-use Bisutil\DeploymentInfo\Facades\DeploymentInfoFacade;
 use Illuminate\Support\ServiceProvider;
 
 /**

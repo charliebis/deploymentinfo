@@ -5,7 +5,7 @@ namespace Bisutil\DeploymentInfo;
 /**
  * Class DeploymentInfoLoader
  *
- * @package Bisutil\DeploymentInfo\Providers
+ * @package Bisutil\DeploymentInfo
  *
  * Represents information about a deployment.
  */

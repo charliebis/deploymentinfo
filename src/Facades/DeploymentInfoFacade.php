@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * Class DeploymentInfoFacade
  *
- * @package Bisutil\DeploymentInfo\Facades
+ * @package Bisutil\DeploymentInfo
  * @see \Bisutil\DeploymentInfo\DeploymentInfoServiceProvider
  * @method __construct(string $jsonPath)
  * @method void loadDeploymentInfo()
