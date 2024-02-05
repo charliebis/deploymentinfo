@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  *
  * This class provides unit tests for the DeploymentInfoLoader class.
  */
-class DeploymentInfoLoaderUnitTests extends TestCase
+class DeploymentInfoLoaderUnitTest extends TestCase
 {
     /**
      * @var array|string[]
