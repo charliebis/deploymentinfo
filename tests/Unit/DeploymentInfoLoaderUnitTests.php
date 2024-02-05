@@ -1,6 +1,6 @@
 <?php
 
-namespace BISUtil\DeploymentInfo\Tests;
+namespace BISUtil\DeploymentInfo\Tests\Unit;
 
 use BISUtil\DeploymentInfo\DeploymentInfoLoader;
 use PHPUnit\Framework\TestCase;
@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  *
  * This class provides unit tests for the DeploymentInfoLoader class.
  */
-class DeploymentInfoLoaderTest extends TestCase
+class DeploymentInfoLoaderUnitTests extends TestCase
 {
     /**
      * @var array|string[]
@@ -33,7 +33,7 @@ class DeploymentInfoLoaderTest extends TestCase
     protected function setUp(): void {
         parent::setUp();
         //  Mock data files. Includes valid JSON and a some types of invalid data
-        $fixturesPath        = __DIR__ . '/fixtures/mocks/';
+        $fixturesPath        = __DIR__ . '/Fixtures/Mocks/';
         $this->mockJsonFiles = [
             'valid_one_dimensional'     => $fixturesPath . 'valid_one_dimensional.json',
             'valid_two_dimensional'     => $fixturesPath . 'valid_two_dimensional.json',
@@ -56,7 +56,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testCanBeInstantiated(): void {
+    public function test_can_be_instantiated(): void {
         $this->assertInstanceOf(DeploymentInfoLoader::class, $this->loader);
     }
 
@@ -69,7 +69,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testLoadResult(): void {
+    public function test_load_result(): void {
         //  Test a successful load of valid data
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $this->assertEquals('success', $this->loader->getStatus());
@@ -86,7 +86,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testNotAnErrorWhenJsonFileIsValid(): void {
+    public function test_not_an_error_when_json_file_is_valid(): void {
         //  Instantiate DeploymentInfoLoader with a valid JSON path
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $this->assertEquals('success', $this->loader->getStatus());
@@ -102,7 +102,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testErrorWhenJsonFileIsInvalid(): void {
+    public function test_error_when_json_file_is_invalid(): void {
         //  Instantiate DeploymentInfoLoader with an invalid JSON path
         $this->loader->reset($this->mockJsonFiles['invalid_trailing_comma']);
         $this->assertEquals('error', $this->loader->getStatus());
@@ -140,7 +140,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testCountOfTotalConfigs(): void {
+    public function test_count_of_total_configs(): void {
         //  Test that a 1d array with 5 elements returns a total of 5
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $total  = $this->loader->getTotal();
@@ -173,7 +173,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testDeploymentInfoIsValid(): void {
+    public function test_deployment_info_is_valid(): void {
         //  The valid_one_dimensional file is a 1d array of 5 elements
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $deploymentInfo = $this->loader->getDeploymentInfo();
@@ -200,7 +200,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testVersionGet(): void {
+    public function test_version_get(): void {
         //  The valid_one_dimensional file is a 1d array of 5 elements
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $version = $this->loader->getVersion();
@@ -216,7 +216,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testGetDeploymentInfoByKeyIsValid(): void {
+    public function test_get_deployment_info_by_key_is_valid(): void {
         //  Test that getDeploymentInfoValueByKey() returns the expected value for the given key in a 1d array
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $deploymentInfoValue = $this->loader->getDeploymentInfoValueByKey('CI_COMMIT_SHA');
@@ -242,7 +242,7 @@ class DeploymentInfoLoaderTest extends TestCase
      *
      * @return void
      */
-    public function testGetDeploymentInfoByKeyIsNull(): void {
+    public function test_get_deployment_info_by_key_is_null(): void {
         //  Test that getDeploymentInfoValueByKey() returns null when given a non-existent key
         $this->loader->reset($this->mockJsonFiles['valid_one_dimensional']);
         $deploymentInfoValue = $this->loader->getDeploymentInfoValueByKey('non_existent_key');
