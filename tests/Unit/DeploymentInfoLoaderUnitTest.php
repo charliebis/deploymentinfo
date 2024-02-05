@@ -33,7 +33,7 @@ class DeploymentInfoLoaderUnitTest extends TestCase
     protected function setUp(): void {
         parent::setUp();
         //  Mock data files. Includes valid JSON and a some types of invalid data
-        $fixturesPath        = __DIR__ . '/Fixtures/Mocks/';
+        $fixturesPath        = __DIR__ . '/../Fixtures/Mocks/';
         $this->mockJsonFiles = [
             'valid_one_dimensional'     => $fixturesPath . 'valid_one_dimensional.json',
             'valid_two_dimensional'     => $fixturesPath . 'valid_two_dimensional.json',
