@@ -1,0 +1,8 @@
+{
+    "CI_COMMIT_SHA": "ThisIsATestCommitSHA",
+    "CI_COMMIT_SHORT_SHA": "ThisIsATestShortCommitSHA",
+    "MULTI": {
+        "CI_COMMIT_SHA": "ThisIsATestCommitSHAMulti",
+        "CI_COMMIT_SHORT_SHA": "ThisIsATestShortCommitSHAMulti",
+    }
+}

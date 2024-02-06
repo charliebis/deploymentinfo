@@ -1,0 +1,17 @@
+{
+    "CI_COMMIT_TAG": "version",
+    "CI_COMMIT_TAG_MESSAGE": "version_message",
+    "CI_COMMIT_TIMESTAMP": "version_timestamp",
+    "CI_COMMIT_SHA": "ThisIsATestCommitSHA",
+    "CI_COMMIT_SHORT_SHA": "ThisIsATestShortCommitSHA",
+    "THIRD_VAR": "ThirdVar",
+    "FOURTH_VAR": "FourthVar",
+    "FIFTH_VAR": "FifthVar",
+    "MULTI": {
+        "CI_COMMIT_SHA_2ND": "ThisIsATestCommitSHAMulti2",
+        "CI_COMMIT_SHORT_SHA_2ND": "ThisIsATestShortCommitSHAMulti2",
+        "THIRD_VAR_2ND": "ThirdVarMulti2",
+        "FOURTH_VAR_2ND": "FourthVarMulti2",
+        "FIFTH_VAR_2ND": "FifthVarMulti2"
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "bisutil/deploymentinfo",
+  "description": "Reads deployment info JSON file and exposes them as config values",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Charles Edwards",
+      "email": "charlie@charliee.co.uk"
+    }
+  ],
+  "require": {
+    "php": "^8.0.2|^8.1",
+    "laravel/framework": "^8.0|^9.0|^10.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "laravel/laravel": "^8.0|^9.0|^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BISUtil\\DeploymentInfo\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BISUtil\\DeploymentInfo\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "BISUtil\\DeploymentInfo\\Providers\\DeploymentInfoServiceProvider"
+      ],
+      "aliases": {
+        "DeploymentInfo": "BISUtil\\DeploymentInfo\\Facades\\DeploymentInfoFacade"
+      }
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
