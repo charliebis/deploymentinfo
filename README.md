@@ -20,7 +20,7 @@ composer config repositories.deploymentinfo vcs https://github.com/charliebis/de
 2) Require the package in your Laravel application. From your project root, use the command below:
 
 ````shell
-composer require bisutil/deploymentinfo:^1.0.12
+composer require bisutil/deploymentinfo
 ````
 
 3) Ensure the JSON file exists in your project root and is called deployment-info.json. Alternatively, you can publish the
